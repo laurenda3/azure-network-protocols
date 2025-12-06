@@ -141,56 +141,6 @@ By default, Azure blocks ICMP traffic. Let's see this in action!
 
 ---
 
-## 🌐 Part 3: Observe Network Protocols
-
-### 5. Observe ICMP Traffic (Ping)
-
-1. In Wireshark, filter for **ICMP**: type `icmp` in filter box
-2. Get **VM2-Linux** private IP address from Azure Portal
-3. Open **PowerShell** on VM1-Windows and ping VM2:
-   ```powershell
-   ping 10.0.0.5 -t
-   ```
-4. Observe ICMP requests and replies in Wireshark
-
-![ICMP Traffic](assets/04-icmp-traffic.png)
-
-#### 5a. Block ICMP with NSG
-
-1. In Azure Portal, go to **VM2-Linux** → **Networking** → **Network Security Group**
-2. Add **Inbound Security Rule**:
-   - Priority: `290`
-   - Source: `Any`
-   - Destination: `Any`
-   - Protocol: `ICMP`
-   - Action: **Deny**
-3. Back in VM1-Windows, observe ping requests **time out**
-4. Wireshark shows requests but **no replies**
-
-![ICMP Blocked](assets/05-icmp-blocked.png)
-
-5. **Re-enable** ICMP by deleting or setting rule to **Allow**
-
----
-
-### 6. Observe SSH Traffic
-
-1. In Wireshark, filter for **SSH**: type `ssh` or `tcp.port == 22`
-2. From VM1-Windows PowerShell, SSH into VM2:
-   ```powershell
-   ssh labuser@10.0.0.5
-   ```
-3. Enter password and run commands:
-   ```bash
-   ls
-   pwd
-   uname -a
-   ```
-4. Observe encrypted SSH packets in Wireshark
-
-![SSH Traffic](assets/06-ssh-traffic.png)
-
-
 ## 🛡️ Part 4: Network Security Groups Demonstration
 
 ### 8. NSG Rules in Action
