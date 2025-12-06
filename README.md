@@ -191,23 +191,6 @@ By default, Azure blocks ICMP traffic. Let's see this in action!
 ![SSH Traffic](assets/06-ssh-traffic.png)
 
 
-### 7. Observe DHCP Traffic
-
-1. In Wireshark, filter: `dhcp`
-2. In PowerShell (**run as Administrator**):
-   ```powershell
-   ipconfig /release
-   ipconfig /renew
-   ```
-3. Observe DHCP Discover, Offer, Request, ACK sequence
-
-![DHCP Traffic](assets/07-dhcp-traffic.png)
-
-> [!WARNING]
-> Running `ipconfig /release` will briefly disconnect your internet! Make sure Wireshark is capturing first.
-
----
-
 ## 🛡️ Part 4: Network Security Groups Demonstration
 
 ### 8. NSG Rules in Action
@@ -233,7 +216,6 @@ You've already seen NSG rules blocking and allowing ICMP traffic. This demonstra
 - ✅ Observing and identifying network protocols:
   - **ICMP** (ping/echo) - Network reachability testing
   - **SSH** (port 22) - Encrypted remote access
-  - **DHCP** - Automatic IP configuration  
   - **DNS** (port 53) - Domain name resolution
 - ✅ Configuring Network Security Groups (NSGs) in Azure
 - ✅ Understanding how firewalls control inbound/outbound traffic
@@ -247,7 +229,7 @@ You've already seen NSG rules blocking and allowing ICMP traffic. This demonstra
 - **Cloud Platform**: Microsoft Azure (VMs, VNets, NSGs)
 - **Operating Systems**: Windows (local), Ubuntu Server 22.04 (Azure)
 - **Network Tools**: Wireshark, PowerShell, SSH
-- **Protocols**: ICMP, SSH, DHCP, DNS, TCP/IP
+- **Protocols**: ICMP, SSH, DNS, TCP/IP
 - **Security**: Network Security Groups, Firewall rules
 
 ---
@@ -271,7 +253,6 @@ Or via Portal: Resource Groups → `NetworkLab-RG` → **Delete resource group**
 - **Protocol understanding** is essential for network troubleshooting:
   - **ICMP**: Tests network connectivity (ping)
   - **SSH**: Secure, encrypted remote access (port 22)
-  - **DHCP**: Automatically assigns IP addresses to devices
   - **DNS**: Translates domain names to IP addresses (port 53)
 - **Security posture**: Azure uses default-deny rules - you must explicitly allow traffic
 - Always **clean up cloud resources** to prevent unexpected charges
