@@ -55,8 +55,6 @@ This tutorial demonstrates how to observe and analyze **network traffic between 
 
 2. **Important**: Note the **Public IP address** after creation - you'll need it!
 
-![Create VM](assets/01-create-vm.png)
-
 ---
 
 ## 🔍 Part 2: Install and Configure Wireshark
@@ -73,8 +71,6 @@ This tutorial demonstrates how to observe and analyze **network traffic between 
 4. Launch Wireshark
 5. Select your active network adapter (Ethernet or Wi-Fi)
 6. Start capturing
-
-![Wireshark Installation](assets/02-wireshark-installed.png)
 
 ---
 
@@ -227,8 +223,6 @@ You've already seen NSG rules blocking and allowing ICMP traffic. This demonstra
 - Block SSH (port 22) - watch connection fail
 - Allow only specific IP addresses
 - Configure outbound rules
-
-![NSG Configuration](assets/08-nsg-rules.png)
 
 ---
 
